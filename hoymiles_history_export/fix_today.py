@@ -1,6 +1,7 @@
 import asyncio
 import datetime
 import json
+import os
 import zoneinfo
 
 import websockets
@@ -8,9 +9,14 @@ import websockets
 from hoymiles_client import HoymilesClient
 
 TZ = zoneinfo.ZoneInfo("Europe/Berlin")
-HA_WS = "ws://<HA_HOST>:8123/api/websocket"
-HA_TOKEN = "<HA_TOKEN>"
-STATISTIC_ID = "sensor.hoymiles_gateway_solarh_3023680_today_eq"
+# Zugangsdaten nur über Umgebungsvariablen, nie im Code:
+#   HA_WS=ws://<home-assistant>:8123/api/websocket
+#   HA_TOKEN=<langlebiges Zugriffstoken>
+#   STATISTIC_ID=sensor.<hoymiles_today_energy>
+#   HOYMILES_USER, HOYMILES_PASSWORD, HOYMILES_STATION_ID (S-Miles-Cloud)
+HA_WS = os.environ["HA_WS"]
+HA_TOKEN = os.environ["HA_TOKEN"]
+STATISTIC_ID = os.environ["STATISTIC_ID"]
 
 
 def hourly_energy_wh(x_minutes, power_w):
@@ -40,7 +46,9 @@ def main():
     current_hour = now_local.hour
     print(f"Now: {now_local}, current_hour={current_hour}")
 
-    client = HoymilesClient("<HOYMILES_USER>", "<HOYMILES_PASSWORD>", "3023680")
+    client = HoymilesClient(
+        os.environ["HOYMILES_USER"], os.environ["HOYMILES_PASSWORD"], os.environ["HOYMILES_STATION_ID"]
+    )
     client.login()
     curves = client.fetch_day_curve([10638890], today.isoformat())
     combined_hourly = [0.0] * 24
