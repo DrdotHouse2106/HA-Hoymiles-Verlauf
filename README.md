@@ -18,7 +18,7 @@ Dieses Repository enthält ein Home-Assistant-Add-on:
 1. In Home Assistant: **Einstellungen → Add-ons → Add-on Store**
 2. Oben rechts **⋮-Menü → Repositories**
 3. Diese URL hinzufügen:
-   `https://github.com/DrdotHouse2106/Hoymiles-History-Export-f-r-HomeAssistant`
+   `https://github.com/DrdotHouse2106/HA-Hoymiles-Verlauf`
 4. Das Add-on **Hoymiles History Export** taucht jetzt im Store auf –
    installieren und die [README](hoymiles_history_export/README.md) für
    Konfiguration und Nutzung lesen.

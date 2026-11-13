@@ -17,7 +17,7 @@ verschiedenen Anlagengrößen, Zeitzonen oder Mehrfach-Wechselrichter-Setups.
 Veröffentlicht, damit andere es ausprobieren können – um zu bestätigen, dass
 es funktioniert, es für den eigenen Anwendungsfall zu erweitern, oder
 zurückzumelden, was nicht funktioniert (bitte über die
-[Issues](https://github.com/DrdotHouse2106/Hoymiles-History-Export-f-r-HomeAssistant/issues)
+[Issues](https://github.com/DrdotHouse2106/HA-Hoymiles-Verlauf/issues)
 dieses Repos).
 
 ## Was es tut
